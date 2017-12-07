@@ -1,10 +1,13 @@
-///
-///     Hello World
-///
-///     in `Rust` Programming Language.
-///
-///     Dec 7 2017
-///
+//!
+//! Hello, World! in `Rust` Programming Language.
+//!
+//! # Examples
+//!
+//! ```rust
+//! fn main() {
+//!     println!("Hello, world!");
+//! }
+//! ```
 
 fn main() {
     println!("Hello, world!");
