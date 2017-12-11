@@ -34,6 +34,7 @@ fn main() {
     println!("x = {}", x);
 }
 
+/// example_function
 fn example_function(x: i32, y: f64) -> i32 {
     println!("x = {}, y = {}.", x, y);
     x
