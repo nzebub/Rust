@@ -34,7 +34,7 @@ fn main() {
     println!("x = {}", x);
 }
 
-/// example_function
+/// example_function having two arguments and one return type.
 fn example_function(x: i32, y: f64) -> i32 {
     println!("x = {}, y = {}.", x, y);
     x
