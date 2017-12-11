@@ -37,27 +37,28 @@
 //!  * f32
 //!  * f64
 //!
-//! Signed and Unsigned
+//! **Signed and Unsigned**
 //!
 //! Usigned types use a `u`for their category, and signed types use `i`.
 //!
-//! Fixed-size types
+//! **Fixed-size types**
 //!
 //! The before signed and unsigned category having one of suffix 8, 16, 32, 64 are fixed-size type.
 //!
-//! Variable-size types
+//! **Variable-size types**
 //!
 //! The before signed and unsigned category having suffix `size` are variable-sized type.
 //!
-//! Floatinf-point types
+//! **Floatinf-point types**
 //!
 //! Rust also has two floating point types,
+//!
 //!  * `f32` 32-bit floating point
 //!  * `f64` 64-bit floating point
 //!
 //! # Arrays
 //!
-//! Rust has list types to represent a sequence of things. The most basic is the __array__, a
+//! Rust has list types to represent a sequence of things. The most basic is the _array_, a
 //! fixed-size list of elements of the same type. By default arrays are immutable
 //! 
 //! ```rust
