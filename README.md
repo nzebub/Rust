@@ -6,4 +6,8 @@ Hello, world!
 Workout
  * Guessing Game.
 
+Variables
+
+Functions
+
 
