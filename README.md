@@ -4,10 +4,12 @@ First to learn Rust Programming Language. Then ...
 Hello, world!
 
 Workout
- * Guessing Game.
+ * Guessing Game
 
 Variables
 
 Functions
+
+Primitive Types
 
 

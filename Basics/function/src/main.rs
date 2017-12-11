@@ -20,6 +20,7 @@
 //! The above function named `example_function` has one integer x and one float y as argument and has a retuen type interger.
 //!
 //! Function pointer, we can create variable bindings wihch point to functions.
+//!
 //! ```rust
 //! let f: fn(i32, f64) -> i32;
 //! ```

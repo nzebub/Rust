@@ -1,0 +1,6 @@
+[package]
+name = "primitive_type"
+version = "0.1.0"
+authors = ["Krishnaraj R <nzebub@gmail.com>"]
+
+[dependencies]
