@@ -71,6 +71,7 @@
 //! println!("First element of a is {}", a[0]);
 //! println!("b has {} elements.", b.len());
 //! println!("Second element of c is {}", c[1]);
+//!
 //! ```
 //!
 //! # Slices
