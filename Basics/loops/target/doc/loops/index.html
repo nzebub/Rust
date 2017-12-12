@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `loops` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, loops">
+
+    <title>loops - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Crate loops</p><p class='location'></p><script>window.sidebarCurrent = {name: 'loops', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>loops</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/loops/main.rs.html#1-172' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Loops in Rust</p>
+
+<p>Rust provides three approaches to performing some kind of iterative activity. They are: <code>loop</code>,
+<code>while</code> and <code>for</code>.</p>
+
+<p><strong>loop</strong></p>
+
+<p>The infinite <code>loop</code> is the simplest of loop available in rust. Using the keyword <code>loop</code>, rust
+provides a way to loop indefinitely until some terminating statement is reached.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">loop</span> {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Loop forever!&quot;</span>);
+}</pre>
+
+<p><strong>while</strong></p>
+
+<p>Rust also has a <code>while</code> loop.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">done</span> <span class="op">=</span> <span class="bool-val">false</span>;
+
+<span class="kw">while</span> <span class="op">!</span><span class="ident">done</span> {
+    <span class="ident">x</span> <span class="op">+=</span> <span class="ident">x</span> <span class="op">-</span> <span class="number">3</span>;
+
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;x - {}&quot;</span>, <span class="ident">x</span>);
+
+    <span class="kw">if</span> <span class="ident">x</span> <span class="op">%</span> <span class="number">5</span> <span class="op">==</span> <span class="number">0</span> {
+        <span class="ident">done</span> <span class="op">=</span> <span class="ident">ture</span>;
+    }
+}</pre>
+
+<p><strong>for</strong></p>
+
+<p>The <code>for</code> loop is used to loop a particular number of times.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;x - {}&quot;</span>, <span class="ident">x</span>):
+}</pre>
+
+<p><strong>Enumerate</strong></p>
+
+<p>When you need to keep track of how many times you have alreay looped, you can use the
+<code>.enumerate()</code> function.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">for</span> (<span class="ident">index</span>, <span class="ident">value</span>) <span class="kw">in</span> (<span class="number">5</span>..<span class="number">10</span>).<span class="ident">enumerate</span>() {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;index - {}, and value - {}&quot;</span>, <span class="ident">index</span>, <span class="ident">value</span>);
+}</pre>
+
+<p>Outputs:</p>
+
+<pre><code class="language-text">index - 0, and value -5
+index - 1, and value -6
+index - 2, and value -7
+index - 3, and value -8
+index - 4, and value -9
+</code></pre>
+
+<p><strong>On iterators:</strong></p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="ident">lines</span> <span class="op">=</span> <span class="string">&quot;hello\nworld&quot;</span>.<span class="ident">lines</span>();
+
+<span class="kw">for</span> (<span class="ident">linenumber</span>, <span class="ident">line</span>) <span class="kw">in</span> <span class="ident">lines</span>.<span class="ident">enumerate</span>() {
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}: {}&quot;</span>, <span class="ident">linenumber</span>, <span class="ident">line</span>);
+}</pre>
+
+<p>Outputs:</p>
+
+<pre><code class="language-text">0: hello
+1: world
+</code></pre>
+
+<p><strong>Ending iteration early</strong></p>
+
+<p>Rust has two keywords to help us with modifying iteration: <code>break</code> and <code>continue</code>.</p>
+
+<p>In this case, we can write the loop in a better way with <code>break</code>:</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x</span> <span class="op">=</span> <span class="number">5</span>;
+
+<span class="kw">loop</span> {
+    <span class="ident">x</span> <span class="op">+=</span> <span class="ident">x</span> <span class="op">-</span> <span class="number">3</span>;
+
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">x</span>);
+
+    <span class="kw">if</span> <span class="ident">x</span> <span class="op">%</span> <span class="number">5</span> <span class="op">==</span> <span class="number">0</span> { <span class="kw">break</span>; }
+}</pre>
+
+<p><code>continue</code> is similar, but instead of ending the loop, it goes to the next iteration.</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+    <span class="kw">if</span> <span class="ident">x</span> <span class="op">%</span> <span class="number">2</span> <span class="op">==</span> <span class="number">0</span> { <span class="kw">continue</span>; }
+
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">x</span>);
+}</pre>
+
+<p><strong>Loop labels</strong></p>
+
+<pre class="rust rust-example-rendered">
+<span class="lifetime">&#39;outer</span>: <span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+    <span class="lifetime">&#39;inner</span>: <span class="kw">for</span> <span class="ident">y</span> <span class="kw">in</span> <span class="number">0</span>..<span class="number">10</span> {
+        <span class="kw">if</span> <span class="ident">x</span> <span class="op">%</span> <span class="number">2</span> <span class="op">==</span> <span class="number">0</span> { <span class="kw">continue</span> <span class="lifetime">&#39;outer</span>; } <span class="comment">// Continues the loop over `x`.</span>
+        <span class="kw">if</span> <span class="ident">y</span> <span class="op">%</span> <span class="number">2</span> <span class="op">==</span> <span class="number">0</span> { <span class="kw">continue</span> <span class="lifetime">&#39;inner</span>; } <span class="comment">// Continues the loop over `y`.</span>
+        <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;x: {}, y: {}&quot;</span>, <span class="ident">x</span>, <span class="ident">y</span>);
+    }
+}</pre>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "loops";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
